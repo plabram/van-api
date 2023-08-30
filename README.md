@@ -10,7 +10,7 @@ A typical van looks like this:
 | `price` | Number | 100 |
 | `attributes` | [String] | ["beds" , "luggage rack"] |
 | `drive` | String | "manual" |
-| `insured` | Boolean | "false" |
+| `insured` | Boolean | false |
 
 ### Endpoints:
 The base url is: http://localhost:4001/api
