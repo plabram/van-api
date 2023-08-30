@@ -9,6 +9,11 @@ const getAllVansFromDb = async (filter) => {
   return vans
 }
 
+const getVanByIdFromDb = async (id) => {
+  const van = await Van.findById(id)
+      return van
+}
+
 const createVanInDb = async (payload) => {
   const newVan = new Van(payload)
   await newVan.save()
@@ -16,5 +21,7 @@ const createVanInDb = async (payload) => {
 }
 
 module.exports = {
-  getAllVansFromDb, createVanInDb
+  getAllVansFromDb,
+  getVanByIdFromDb,
+  createVanInDb
 }
