@@ -1,6 +1,5 @@
 const {Van} = require("../models/mongo")
 
-
 const getAllVansFromDb = async (filter) => {
   const titleFilterOptions = {
     title: {$regex: new RegExp(filter, "i")} 
@@ -20,8 +19,14 @@ const createVanInDb = async (payload) => {
   return newVan
 }
 
+const updateVanInDb = async (id, payload) => {
+  const van = await Van.findByIdAndUpdate(id, payload, {new:true})
+  return van
+}
+
 module.exports = {
   getAllVansFromDb,
   getVanByIdFromDb,
-  createVanInDb
+  createVanInDb,
+  updateVanInDb
 }
