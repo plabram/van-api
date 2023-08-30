@@ -2,6 +2,8 @@
 Do you ever dream of selling your house and travelling the world in a van? This API takes you one step closer by allowing you to manage information about your van collection.
 
 A typical van looks like this:
+| Field | Type | Example |
+| --- | --- | --- |
 | `title` | String | "Classic van with roof rack" |
 | `model` | String | "Volkswagen Transporter" |
 | `description` | String | "A beautiful classic VW van , nearly new. Back seats fold down to make beds. Has luggage rack where you can put your surfboard." |
