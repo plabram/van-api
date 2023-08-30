@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 
 // MongoDB
-mongoose.set("strict", false)
+mongoose.set("strict", true)
 mongoose.set("strictQuery", false)
-mongoose.set("strictPopulate", false)
+mongoose.set("strictPopulate", true)
 
 mongoose
 .connect(process.env.MONGO_URL)
