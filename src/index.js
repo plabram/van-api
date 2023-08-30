@@ -1,8 +1,8 @@
 require("dotenv").config() 
 const express = require('express')
+require("./config/db")
 const rateLimit = require('express-rate-limit')
 const mainRouter = require("./routes") // automatically imports index
-require("./config/db")
 const app = express()
 
 const limiter = rateLimit({
@@ -11,7 +11,6 @@ const limiter = rateLimit({
 	standardHeaders: false,
 	legacyHeaders: false,
 })
-
 app.use(limiter)
 app.use(express.json({limit: "1mb"}))
 app.use(express.urlencoded({limit:"1mb", extended: true}))

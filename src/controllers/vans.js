@@ -2,12 +2,10 @@ const {Van} = require("../models/mongo")
 
 
 const getAllVansFromDb = async (filter) => {
-  const nameFilterOptions = {
-    name: {$regex: new RegExp(filter, "i")} 
+  const titleFilterOptions = {
+    title: {$regex: new RegExp(filter, "i")} 
   }
-
-  const vans = await Van.find(filter ? nameFilterOptions : {})
-  
+  const vans = await Van.find(filter ? titleFilterOptions : {})
   return vans
 }
 
@@ -20,15 +18,14 @@ const getAllVans = async (req,res)=> {
 const createVanInDb = async (payload) => {
   const newVan = new Van(payload)
   await newVan.save()
-
   return newVan
 }
 
 const createVan = async (req, res) => {
-  const newVan = await createVanInDb({
-    name: "hello" //req.body.name
-})
-res.status(201).json({data: newVan})
+//  const {title, model, description, price, attributes, drive, insured} = req.body
+  // const newVan = await createVanInDb({title, model, description, price, attributes, drive, insured})
+  const newVan = await createVanInDb({...req.body})
+  res.status(201).json({data: newVan})
 }
 
 
