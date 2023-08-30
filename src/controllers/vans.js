@@ -1,3 +1,4 @@
+const { now } = require("mongoose")
 const {
   getAllVansFromDb, 
   getVanByIdFromDb, 
@@ -18,12 +19,17 @@ const getVanById = async (req,res) => {
 }
 
 const createVan = async (req, res) => {
-const newVan = await createVanInDb({...req.body})
+  let vanObject = {...req.body}
+  vanObject.created = new Date
+const newVan = await createVanInDb(vanObject)
   res.status(201).json({data: newVan})
 }
 
 const updateVanById = async (req, res) => {
   const {id} = req.params
+  let dateUpdate = req.body
+  dateUpdate.lastUpdated = new Date
+  console.log(dateUpdate)
 const van = await updateVanInDb(id, req.body)
 res.status(200).json({data: van})
 }
