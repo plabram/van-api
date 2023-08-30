@@ -24,9 +24,14 @@ const updateVanInDb = async (id, payload) => {
   return van
 }
 
+const deleteVanFromDb = async (id) => {
+  await Van.deleteOne({_id: id})
+}
+
 module.exports = {
   getAllVansFromDb,
   getVanByIdFromDb,
   createVanInDb,
-  updateVanInDb
+  updateVanInDb,
+  deleteVanFromDb
 }

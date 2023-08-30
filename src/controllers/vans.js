@@ -25,8 +25,13 @@ const newVan = await createVanInDb({...req.body})
 const updateVanById = async (req, res) => {
   const {id} = req.params
 const van = await updateVanInDb(id, req.body)
-
 res.status(200).json({data: van})
+}
+
+const deleteVan = async (req,res)=>{
+  const {id} = req.params
+    await mongo.deleteVanFromDb(id)
+    res.status(200).json({data: "Van deleted"})
 }
 
 module.exports = {
@@ -34,4 +39,5 @@ module.exports = {
   getVanById, 
   createVan,
   updateVanById,
+  deleteVan
 }
