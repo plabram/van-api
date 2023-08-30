@@ -10,14 +10,14 @@ A typical van looks like this:
 | `price` | Number | 100 |
 | `attributes` | [String] | ["beds" , "luggage rack"] |
 | `drive` | String | "manual" |
-| `insured` | Boolean | "false" |
+| `insured` | Boolean | false |
 
 ### Endpoints:
 The base url is: http://localhost:4001/api
 * GET all vans and POST new vans: /vans
 * GET, PUT or DELETE vans by id: /vans/:id
 
-Whenever a new van is created or updated the date is automatically added in `created` and `lastUpdated`.
+Whenever a new van is created or updated the date is automatically recorded in the fields `created` and `lastUpdated`.
 
 
 
